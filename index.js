@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const multer  = require('multer');
 const path = require("path");
+const cors = require("cors");
 
 //!  --------------------------------Importing Routes------------------------------------------
 const authRoute = require("./routes/auth");
@@ -17,6 +18,7 @@ const categoriesRoute = require("./routes/categories");
 dotenv.config();
 app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(express.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //!  ------------------------------DB CONNECTION---------------------------------------
