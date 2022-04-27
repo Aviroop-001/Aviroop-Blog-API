@@ -4,7 +4,7 @@
   "description": "REST API for my Blog website",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "author": "Aviroop Banerjee",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express": "^4.17.3",
     "mongoose": "^6.2.10",
     "multer": "^1.4.4",
+    "nodemon": "^2.0.15",
     "path": "^0.12.7"
   }
 }
