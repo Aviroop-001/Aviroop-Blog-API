@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const User = require("../models/User");
 const Post = require("../models/Post");
 
 
 //TODO: CREATE -----------------------------------------------------
 router.post("/", async (req,res) =>{
-    const newPost = new Post(req.body);
     try {
+        let newPost = new Post(req.body);
         const newlySavedPost = await newPost.save();
         res.status(200).json(newlySavedPost);
     } catch (err) {
