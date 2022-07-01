@@ -24,11 +24,10 @@ router.put("/:id", (req, res) =>{
 
 //TODO: DELETE -------------------------------------------------------
 router.delete("/:id", (req,res) => {
-    if(req.body.userID === req.params.id){
         const currid = req.params.id.toString().trim();
         User.findById(currid, (err,foundDoc) =>{
             if(!err){
-                Post.deleteMany({username: foundDoc.username});
+                // Post.deleteMany({username: foundDoc.username});
                 User.findByIdAndDelete(currid, err =>{
                     if(err){
                         res.status(500).json(err);
@@ -40,10 +39,6 @@ router.delete("/:id", (req,res) => {
                 res.status(400).json(err);
             }
         });
-    }
-    else{
-        res.status(401).json("Went wrong");
-    }
 });
 
 //TODO: RETRIEVE -----------------------------------------------------
@@ -51,7 +46,7 @@ router.get("/:id", (req,res) =>{
     if(req.body.userID === req.params.id){
         User.findById(req.params.id, (err,foundDoc) =>{
             if(!err){
-                //spread Spread operator
+                //Spread operator
                 const {password, ...restOfData} = foundDoc._doc;
                 res.status(200).json(restOfData);
             }

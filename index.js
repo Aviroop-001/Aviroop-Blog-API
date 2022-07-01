@@ -30,29 +30,6 @@ mongoose.connect(process.env.mongo_URL)
     console.log(err);
 });
 
-//!  -------------------------BACKEND IMAGE UPLOADING USING MULTER --------------------------
-
-// //TODO: The storage has two args, destination(where the media will be saved) and filename(what will be the name of the saved file)
-// const storage= multer.diskStorage({
-//     destination: (req, file, callback)=>{
-//         callback(null, "images");
-//     },
-//     filename: (req, file, callback)=>{
-//         //TODO: the second parameter is the filename with which a particular image will be saved. Here we've named it "hello.jpeg", but in reality, we need to give it the name we're getting from the response, that is 'res.body.name'.....
-        
-//         const nm = JSON.stringify(req.body.name);
-//         callback(null, Date.now()+file.originalname);
-//     }
-// });
-
-// const upload = multer({storage: storage});
-// //TODO: once we get the image from the client side, we need to save it
-// app.post("/api/upload", upload.single("file"), (req,res)=>{
-//     console.log('File Uploaded Successfully.....')
-//     res.status(200).json("File Uploaded Successfully :> ")
-// });
-
-
 //!  ------------------------------------ROUTES---------------------------------------------
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
