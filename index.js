@@ -4,7 +4,6 @@ const app = express();
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const multer  = require('multer');
 const path = require("path");
 const cors = require("cors");
 
